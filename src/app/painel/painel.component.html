@@ -1,0 +1,38 @@
+<div class="container text-center">
+  <div class="row">
+    <div class="col-6 feedbacks">
+      <app-progresso [progresso]="progresso"></app-progresso>
+    </div>
+    <div class="col-4 feedbacks">
+      <app-tentativas [tentativas]="tentativas"></app-tentativas>
+    </div>
+    <div class="col-10 painel">
+      <h5>A frase é:</h5>
+      <h4>{{ rodadaFrase.fraseEng}}</h4>
+      <div class="form-floating">
+        <textarea (keyup.enter)="verificarResposta()" (input)="atualizaResposta($event)" [value]="resposta" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+        <label  for="floatingTextarea2">Traduza a frase:</label>
+        <button (click)="verificarResposta()">Verificar</button>
+      </div>
+    </div>
+
+  </div>
+  <!-- Toast de Vitória -->
+
+  <div class="toast align-items-center" id="successToast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        Você acertou!
+      </div>
+    </div>
+  </div>
+  <!-- Toast de Derrota -->
+  <div class="toast toast-failure" id="failureToast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        Você errou! Tente novamente!
+      </div>
+    </div>
+  </div>
+
+
